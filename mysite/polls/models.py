@@ -12,7 +12,7 @@ class Question(models.Model):
             'text': self.question_text,
             'pub date': self.pub_date
         }
-        return display_info
+        return str(display_info)
     
     def was_published_recently(self):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
@@ -24,8 +24,8 @@ class Choice(models.Model):
     def __str__(self):
         display_info = {
             'id': self.id,
-            'question': Question.objects.filter(id=self.question)[0].question_text,
-            'text': self.question_text,
-            'pub date': self.pub_date
+            'question': Question.objects.filter(id=self.question.id)[0].question_text,
+            'text': self.choice_text,
+            'votes': self.votes
         }
-        return display_info
+        return str(display_info)
