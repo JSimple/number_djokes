@@ -29,7 +29,7 @@ Rating:
 - Joke_id
 - User_id
 
-Favorites:
+Favorite:
 - Joke_id
 - User_id
 
@@ -42,8 +42,7 @@ User:
 - Name - string
 - Password - string
 
-
-JOKE INFOS
+JOKE INFO JSONs
 
 All:
 - type
@@ -54,6 +53,13 @@ Gardenpath_polynomial:
 - setup_terms
 - punchline_terms
 
+---
+QUESTIONS:
+- If I add a column to a model, how do I normalize that w the existing rows that have been written in the database?
+
+
+---
+NOTES:
 
 single model:
 pros - easier to query
@@ -61,5 +67,3 @@ pros - easier to query
 seperate models:
 pros - you're not doing any joins so faster, 
 cons - but doing more queries
-
-easier in a databse to get less specific than more specific
