@@ -20,10 +20,12 @@ V3:
 ----
 
 MODELS
+- TODO: add created & updated dates for all models
 
 Joke:
 - Info -- JSON
 - User_id
+- title
 
 Rating:
 - Joke_id
@@ -52,6 +54,8 @@ Gardenpath_polynomial:
 - punchline_pts
 - setup_terms
 - punchline_terms
+- setup_length
+- punchline_length
 
 ---
 QUESTIONS:
