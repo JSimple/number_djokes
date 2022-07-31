@@ -1,0 +1,10 @@
+<h1> Number Joke Generator </h1>
+{% if joke_list %}
+    <ul>
+    {% for joke in joke_list %}
+        <li><a href={% url 'jokes_site:detail' joke.id %}>{{ joke.content_info }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>There are no jokes.</p>
+{% endif %}

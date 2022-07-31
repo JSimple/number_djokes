@@ -4,8 +4,12 @@ from .models import *
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Hello, world. You're at the numberjokes index.")
+    joke_list = Joke.objects.order_by('-pk')[:5]
+    context = {
+        'joke_list': joke_list,
+    }
+    return render(request, 'jokes_site/index.html', context)
 
 def detail(request, joke_id):
     joke = get_object_or_404(Joke, pk=joke_id)
-    return render(request, 'numberjokes/detail.html', {'joke': joke})
+    return render(request, 'jokes_site/detail.html', {'joke': joke})

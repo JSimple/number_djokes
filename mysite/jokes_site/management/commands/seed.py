@@ -1,20 +1,27 @@
-from ....number_jokes.gardenpath_polynomials import *
 from django.core.management.base import BaseCommand
-from mysite.jokes_site.models import *
+import jokes_site.models
+import number_jokes.polynomial_gardenpath
 from logging import Logger
 import random
 from faker import Faker
 
-logger = Logger()
+logger = Logger('SeedLogger')
 fake = Faker()
 
 # python manage.py seed --mode=refresh
 
-""" Clear all data and creates jokees """
+""" Clear all data and creates jokes """
 MODE_REFRESH = 'refresh'
 
 """ Clear all data and do not create any object """
 MODE_CLEAR = 'clear'
+
+#####
+Joke = jokes_site.models.Joke
+PGP = number_jokes.polynomial_gardenpath.PolynomialGardenpath
+
+#####
+
 
 class Command(BaseCommand):
     help = "seed database for testing and development."
@@ -24,7 +31,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         self.stdout.write('seeding data...')
-        run_seed(self, options['mode'])
+        run_seed(options['mode'])
         self.stdout.write('done.')
 
 
@@ -40,16 +47,19 @@ def create_joke():
     
     content_info = {}
     
+    joke = PGP()
+    joke.gen_joke()
+    
     joke = Joke(
-        content_info = content_info,
-        title = fake.text(max_nb_chars = 20),
-        user = None,
+        content_info = joke.json(),
+        name = fake.text(max_nb_chars = 20),
+        author = fake.name(),
     )
     joke.save()
     logger.info("{} joke created.".format(joke))
     return joke
 
-def run_seed(self, mode):
+def run_seed(mode):
     """ Seed database based on mode
 
     :param mode: refresh / clear 
