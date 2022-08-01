@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import * 
+import json
 
 # Create your views here.
 def index(request):
@@ -12,4 +13,5 @@ def index(request):
 
 def detail(request, joke_id):
     joke = get_object_or_404(Joke, pk=joke_id)
-    return render(request, 'jokes_site/detail.html', {'joke': joke})
+    content = json.loads(joke.content)
+    return render(request, 'jokes_site/detail.html', {'joke': joke, 'content': content})

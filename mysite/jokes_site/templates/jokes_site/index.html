@@ -2,7 +2,7 @@
 {% if joke_list %}
     <ul>
     {% for joke in joke_list %}
-        <li><a href={% url 'jokes_site:detail' joke.id %}>{{ joke.content_info }}</a></li>
+        <li><a href={% url 'jokes_site:detail' joke.id %}>{{ joke.content }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

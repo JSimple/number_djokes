@@ -51,9 +51,9 @@ def create_joke():
     joke.gen_joke()
     
     joke = Joke(
-        content_info = joke.json(),
+        content = joke.json(),
         name = fake.text(max_nb_chars = 20),
-        author = fake.name(),
+        author = None,
     )
     joke.save()
     logger.info("{} joke created.".format(joke))

@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 
 #QUESTIONS:
@@ -18,7 +19,7 @@ class User(models.Model):
     password = models.CharField(max_length=10)
 
 class Joke(models.Model):
-    content_info = models.JSONField('joke info')
+    content = models.JSONField('content', default=dict)
     name = models.CharField(max_length=200)
     author = models.ForeignKey(
         User, 

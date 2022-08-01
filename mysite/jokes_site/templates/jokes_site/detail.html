@@ -1,5 +1,26 @@
 {% if joke %}
-    <span> {{joke.content_info}} </span>
+    <ul> 
+        {% for jp in content.joke_parts %}
+        <ul>
+            {% for pt in jp.points %}
+            <li>{{pt}}</li>
+        {% endfor %}        
+        </ul>
+        <li> &hellip; </li>
+    {% endfor %}
+    </ul>
 {% else %}
     <p>No joke.</p>
 {% endif %}
+
+
+
+<!--
+    - joke part 1
+        - number 1
+        - number 2
+        - number 3
+    - joke part 2
+        - number 1
+        - number 2
+    >
