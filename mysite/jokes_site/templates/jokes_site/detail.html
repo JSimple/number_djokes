@@ -3,7 +3,7 @@
         {% for jp in content.joke_parts %}
         <ul>
             {% for pt in jp.points %}
-            <li>{{pt}}</li>
+            <li>{{pt|floatformat:0}}</li>
         {% endfor %}        
         </ul>
         <li> &hellip; </li>
