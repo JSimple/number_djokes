@@ -37,17 +37,17 @@ const generate_joke = async(event, set_joke, method = 'POST') => {
 }
 
 function App() {
-  const [joke, set_joke] = useState({})
+  const [joke, set_joke] = useState(null)
 
   // useEffect(() => {},[])
 
-
+console.log(joke)
   return (
       <div>
         <form onSubmit={(event) => generate_joke(event,set_joke)}>
           <button type='submit'>generate joke</button>
         </form>
-        {(joke !== []) && <Stage props={joke} />}
+        {joke ? <Stage props={joke}/>  : <span></span> }
       </div>
   );
 }
