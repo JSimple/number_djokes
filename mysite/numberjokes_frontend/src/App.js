@@ -40,8 +40,7 @@ function App() {
   const [joke, set_joke] = useState(null)
 
   // useEffect(() => {},[])
-
-console.log(joke)
+  console.log(joke)
   return (
       <div>
         <form onSubmit={(event) => generate_joke(event,set_joke)}>
