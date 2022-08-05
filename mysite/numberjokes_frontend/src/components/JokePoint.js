@@ -10,7 +10,7 @@ export default function JokePoint(props){
 
     useEffect(() => {
         setInterval(() => {
-            setShowComponent(!showComponent);
+            setShowComponent(true);
         }, 1000);
     }, [])
     //console.log(`NUMBER: ${number.values}`)

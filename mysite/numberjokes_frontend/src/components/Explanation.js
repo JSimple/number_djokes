@@ -2,7 +2,6 @@ import { format_polynomial } from "../lib/formatting"
 
 export default function Explanation(props){
     let coefs = props.props
-    let explanations = []
     // for (let i = 0; i < joke_parts.length)
     return(
         <div>

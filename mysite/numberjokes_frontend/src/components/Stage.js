@@ -1,7 +1,6 @@
 import Explanation from "./Explanation";
 import { useEffect, useState } from "react"
 import { round_num } from "../lib/formatting";
-import JokePoint from "./JokePoint";
 
 export default function Stage(props){
     const joke_parts = props.props.content.joke_parts;
@@ -11,35 +10,41 @@ export default function Stage(props){
     
     const coefs_array = joke_parts.map(jp => jp.polynomial)
     const display_coefs = coefs_array.map(jp => jp.map(num => round_num(num))) 
+    console.log(display_array)
+    let [points, setPoints] = useState(0)
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (points < display_array[0].length){
+                setPoints(points++);
+            }
+        }, 2000);
+        return () => clearInterval(interval);
+    }, [])
     
-    // const add_points_to_render = (joke_parts) => {
-    //     for (let i = 0; i < joke_parts.length; i++){
-    //         let points = joke_parts[i].points
-    //         for (let j = 0; j < points.length; j++){
-    //             let num = points[j]
-    //             setTimeout(() => points_to_render.push(num), 1000 * j)  
+    // useEffect(() => {
+    //     for (let i = 0; i < display_array.length; i++){
+    //         let joke_part_points = display_array[i]
+    //         for (let j = 0; j < joke_part_points.length; j++){
+    //             let point = joke_part_points[j]
+    //             setTimeout(() => {
+    //                 setPoints(points.push(point))
+    //             }, 1000 * j * i)
+    //             console.log(points)
     //         }
     //     }
-    // }
-
-    //useEffect(() => console.log(points_to_render),[points_to_render])
-    
-    // add_points_to_render(joke_parts)
+    // }, [])
 
     return (
         <div>
             <span> Joke: </span>
             <div className='jokeContainer'>
-                {display_array.map((jp, j) => {
-                    const joke_part_list = 
-                    <ul key= {j}>
-                    {jp.map((point, i) =>
-                    <li obj={point} key={i}> <JokePoint props={point}/> </li>
+                <span>{display_array[0][points]}</span>
+                    {/* <ul>
+                    {points.map((point, i) =>
+                    <li obj={point} key={i}> {point} </li>
                     )}
-                    </ul>
-                    return joke_part_list
-                }
-                )}
+                    </ul> */}
             </div>
                 <Explanation props={display_coefs}/>
         </div>

@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Stage from './components/Stage'
 
 const API_HOST = 'http://localhost:8000';
@@ -38,9 +38,6 @@ const generate_joke = async(event, set_joke, method = 'POST') => {
 
 function App() {
   const [joke, set_joke] = useState(null)
-
-  // useEffect(() => {},[])
-  console.log(joke)
   return (
       <div>
         <form onSubmit={(event) => generate_joke(event,set_joke)}>
