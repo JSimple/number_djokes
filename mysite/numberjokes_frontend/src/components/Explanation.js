@@ -1,8 +1,28 @@
 import { format_polynomial } from "../lib/formatting"
+import { useState, useEffect } from "react"
 
 export default function Explanation(props){
-    let coefs = props.props
-    // for (let i = 0; i < joke_parts.length)
+    let coefs = props.coefs
+
+
+
+    const [showComponent, setShowComponent] = useState(false)
+
+
+    useEffect(() => {
+
+        setShowComponent(false)
+
+        setTimeout(() => {
+            setShowComponent(true);
+        }, 2000 );
+
+    }, [])
+
+    if (!showComponent){
+        return (<div></div>)
+    }
+
     return(
         <div>
             <p>This joke was funny because first you thought the numbers followed this rule:</p>

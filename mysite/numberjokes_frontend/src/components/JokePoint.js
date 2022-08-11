@@ -1,21 +1,31 @@
 import { useEffect, useState } from "react"
 
 export default function JokePoint(props){
-    // props: {number: int, pause_before_render: int(milliseconds), punchline(bool)}
+
+    let {point, idx, rendered, toggleButtonCallback, showExplanationCallback} = props
     
     const [showComponent, setShowComponent] = useState(false)
-    console.log(`PROPS: ${props.props}`)
-    // let joke_point_data = props.props
-    // let {number, pause_before_render, punchline }= joke_point_data
+    
+
 
     useEffect(() => {
-        setInterval(() => {
+
+        setShowComponent(false)
+
+        setTimeout(() => {
             setShowComponent(true);
-        }, 1000);
-    }, [])
-    //console.log(`NUMBER: ${number.values}`)
+            toggleButtonCallback();
+            showExplanationCallback();
+        }, 1000 * (idx + 1) );
+
+    }, [point])
+
     return(
-            <div>{showComponent && <div>{props}</div>}</div>
+            <div>{showComponent && <div>{point}</div>}</div>
     )
 
 }
+
+// wait_before_render
+// how long it's waited so far = wait_before_render per point * the number of points so far
+// the number of points so far is (i + 1) * (j + 1)

@@ -14,7 +14,8 @@ li {
 }
 
 span{
-  padding: 4px
+  padding: 4px;
+  text-align: center;
 }
 
 .jokeContainer {
@@ -25,4 +26,6 @@ span{
   margin: 5.5px;
   font-family:'Courier New', Courier, monospace;
   font-weight: bolder;
+  min-height: 51px;
+  text-align: center;
 }

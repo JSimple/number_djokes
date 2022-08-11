@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from "react"
 import Stage from './components/Stage'
+import GenerateButton from './components/GenerateButton';
 
 const API_HOST = 'http://localhost:8000';
 let _csrfToken = null;
@@ -28,6 +29,7 @@ const generate_joke = async(event, set_joke, method = 'POST') => {
     };
     const res = await fetch(`${API_HOST}/jokes_site/`, post_object);
     const joke = await res.json();
+    
     set_joke(joke)
     return joke;
   } catch (e) {
@@ -36,14 +38,26 @@ const generate_joke = async(event, set_joke, method = 'POST') => {
   }
 }
 
+
+
 function App() {
   const [joke, set_joke] = useState(null)
+
+  const [enableButton, setEnableButton] = useState(true)
+
+  const toggleButton = () => {
+      setEnableButton(!enableButton)
+  }
+
   return (
       <div>
-        <form onSubmit={(event) => generate_joke(event,set_joke)}>
-          <button type='submit'>generate joke</button>
+        <form onSubmit={(event) => {
+          set_joke(null); 
+          generate_joke(event,set_joke);}
+          }>
+          <GenerateButton enabled = {enableButton} toggleButton = {toggleButton}/>
         </form>
-        {joke ? <Stage props={joke}/>  : <span></span> }
+        {joke ? <Stage toggleButton = {toggleButton} joke={joke}/>  : <span></span> }
       </div>
   );
 }
