@@ -1,3 +1,4 @@
+- do secret key
 - make favicon show up
 - add about page
 - deploy app
