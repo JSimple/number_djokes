@@ -1,3 +1,3 @@
-[submodule "mysite/number_jokes"]
-	path = mysite/number_jokes
+[submodule "number_jokes"]
+	path = number_jokes
 	url = git@github.com:JSimple/number_jokes.git
