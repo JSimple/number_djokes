@@ -3,12 +3,12 @@ import { useState } from "react"
 import Stage from './components/Stage'
 import GenerateButton from './components/GenerateButton';
 
-const API_HOST = 'http://localhost:8000';
+// const API_HOST = 'http://localhost:8000';
 let _csrfToken = null;
 
 async function getCsrfToken() {
   if (_csrfToken === null) {
-    const response = await fetch(`${API_HOST}/jokes_site/csrf/`, {
+    const response = await fetch(`/jokes_site/csrf/`, {
       credentials: 'include',
     });
     const data = await response.json();
@@ -27,7 +27,7 @@ const generate_joke = async(event, set_joke, method = 'POST') => {
         credentials: 'include',
         'Access-Control-Allow-Credentials' : true
     };
-    const res = await fetch(`${API_HOST}/jokes_site/`, post_object);
+    const res = await fetch(`/jokes_site/`, post_object);
     const joke = await res.json();
     
     set_joke(joke)
