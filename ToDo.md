@@ -1,0 +1,13 @@
+- make favicon show up
+- add about page
+- deploy app
+- style app
+- load jokes from database
+- add kickers (requires load jokes from db)
+- un hardcode the explanations so that they allow for kickers
+- joke generation options
+    - generate joke from custom setup
+    - generate joke from degree and length parameters
+- enable ratings
+- joke leaderboard
+- show random joke from db
