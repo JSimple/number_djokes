@@ -8,6 +8,8 @@ django = "*"
 numpy = "*"
 django-cors-headers = "*"
 gunicorn = "*"
+psycopg2 = "*"
+dj-database-url = "*"
 
 [dev-packages]
 
