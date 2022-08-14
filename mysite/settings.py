@@ -124,8 +124,11 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'numberjokes_frontend/build')
 ]
 
+WHITENOISE_INDEX_FILE = True
+
 # Media
 MEDIA_URL = 'http://example.com'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
