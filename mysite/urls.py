@@ -15,9 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.contrib.staticfiles.views import serve
+from . import settings
 
 urlpatterns = [
     path('polls/', include('polls.urls')),
     path('jokes_site/', include('jokes_site.urls')),
     path('admin/', admin.site.urls),
 ]
+
+if settings.DEBUG:
+    urlpatterns += [path(
+    '', serve, kwargs={ 'path': 'index.html'})]

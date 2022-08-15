@@ -24,9 +24,13 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = 'django-insecure-=@db!%z6%^zfb$hulb_a$*o@p8i*l2a$w^6vg@$1w@9o1it0c1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['number-jokes.herokuapp.com']
+ALLOWED_HOSTS = [
+    'number-jokes.herokuapp.com',
+    '127.0.0.1',
+    'localhost'
+                 ]
 
 
 # Application definition
@@ -80,7 +84,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config()
+    'default': dj_database_url.config(default='sqlite:///db.sqlite3')
 }
 
 
@@ -119,7 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-STATIC_URL = '/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'numberjokes_frontend/build')
 ]
@@ -127,7 +131,7 @@ STATICFILES_DIRS = [
 WHITENOISE_INDEX_FILE = True
 
 # Media
-MEDIA_URL = 'http://example.com'
+MEDIA_URL = 'http://example.com/'
 
 
 # Default primary key field type
