@@ -133,3 +133,6 @@ dmypy.json
 
 # static file stuff
 mysite/staticfiles
+
+#notes
+ToDoList.md
