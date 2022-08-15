@@ -15,15 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from django.contrib.staticfiles.views import serve
+from django.http import HttpResponse
 from . import settings
+import os
 
-urlpatterns = [
+def index(response):
+    f = open(os.path.join(settings.STATIC_ROOT, 'index.html'), 'rb')
+    return HttpResponse(f.read(), content_type="text/html")
+
+urlpatterns = [ 
     path('polls/', include('polls.urls')),
     path('jokes_site/', include('jokes_site.urls')),
     path('admin/', admin.site.urls),
+    path('', index)
 ]
-
-# if settings.DEBUG:
-urlpatterns += [path(
-'', serve, kwargs={ 'path': 'index.html'})]
