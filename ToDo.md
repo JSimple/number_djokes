@@ -1,7 +1,11 @@
-- do secret key
+- deploy stuff
+    - [ ] do secret key
+    - [ ] make it so when I deploy prod I don't have to run the build and commit build files
+    - [ ] how do I get Heroku to build my frontend?
+    - [ ] fix moble
+
 - make favicon show up
 - add about page
-- deploy app
 - style app
 - load jokes from database
 - add kickers (requires load jokes from db)
