@@ -1,6 +1,6 @@
 import Explanation from "./Explanation";
-import { useEffect, useState } from "react"
-import { round_num } from "../lib/formatting";
+import { useState } from "react"
+import { round_num } from "../utility/formatting";
 import JokePoint from "./JokePoint";
 
 export default function Stage(props){

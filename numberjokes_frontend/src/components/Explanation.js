@@ -1,4 +1,4 @@
-import { format_polynomial } from "../lib/formatting"
+import { format_polynomial } from "../utility/formatting"
 import { useState, useEffect } from "react"
 
 export default function Explanation(props){

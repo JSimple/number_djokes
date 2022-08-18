@@ -9,4 +9,5 @@ urlpatterns = [
     path('csrf/', views.csrf),
     path('ping/', views.ping),
     path('<int:joke_id>/', views.detail, name='detail'),
+    path('about/', views.about, name='about')
 ]

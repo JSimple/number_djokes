@@ -52,3 +52,6 @@ def detail(request, joke_id):
     joke = get_object_or_404(Joke, pk=joke_id)
     content = json.loads(joke.content)
     return render(request, 'jokes_site/detail.html', {'joke': joke, 'content': content})
+
+def about(request):
+    return render(request,'jokes_site/about.html')

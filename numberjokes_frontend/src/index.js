@@ -4,9 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// function getAbout(){
+//   let aboutPage = fetch()
+// }
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <a href='/joke_site/about/'>
+      about
+    </a>
     <App />
   </React.StrictMode>
 );
