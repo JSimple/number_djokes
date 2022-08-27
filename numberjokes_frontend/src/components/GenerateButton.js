@@ -6,7 +6,6 @@ export default function GenerateButton(props) {
         <button 
         type='submit'
         disabled = {!enabled}
-        onClick={() => toggleButton()}
         >generate joke
         </button>
     )

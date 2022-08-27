@@ -52,7 +52,8 @@ function App() {
   return (
       <div>
         <form onSubmit={(event) => {
-          set_joke(null); 
+          set_joke(null);
+          toggleButton() 
           generate_joke(event,set_joke);}
           }>
           <GenerateButton enabled = {enableButton} toggleButton = {toggleButton}/>
