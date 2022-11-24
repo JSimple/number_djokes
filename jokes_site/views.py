@@ -37,8 +37,7 @@ def index(request):
             name = 'Funny_Joke' + str(floor(random() * 1000)),
             author = None,
         )
-        new_joke_db_object.save()
-        new_joke_db_object
+        # new_joke_db_object.save()
         new_joke_dict = {
             'content': json.loads(new_joke_db_object.content),
             'name' : new_joke_db_object.name,
